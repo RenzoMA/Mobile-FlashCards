@@ -1,5 +1,5 @@
 # Mobile Flashcards
-Content and comment web app. The project was developed using _React_Native_ and it uses the _AsyncStorage_ to persist the information as we interact with the application.
+Mobile app for creating questions and answer to help you study. The project was developed using _React_Native_ and it uses the _AsyncStorage_ to persist the information as we interact with the application.
 ## Getting Started
 ### Dependencies
 You will need to install Node.js from [Here](https://nodejs.org)
