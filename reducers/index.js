@@ -1,4 +1,4 @@
-import { ADD_CARD, ADD_DECK, RECEIVE_DECKS } from '../actions'
+import { ADD_CARD, ADD_DECK, RECEIVE_DECKS } from '../actions/types'
 
 function reducer(state = {}, action) {
     switch (action.type) {

@@ -18,10 +18,13 @@ class AddDeck extends Component {
             }
             saveDeckTitle(deck)
             this.props.addDeck(deck)
-            this.props.goBack()
             this.setState({
                 title: ''
             })
+            this.props.navigation.navigate(
+                'DeckDetail',
+                { deckTitle: title }
+            )
         }
 
     }
@@ -50,12 +53,8 @@ function mapDispatchToProps(dispatch, { navigation }) {
         goBack: () => navigation.goBack()
     }
 }
-function mapStateToProps(state) {
-    return {
 
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(AddDeck)
+export default connect(null, mapDispatchToProps)(AddDeck)
 
 const styles = StyleSheet.create({
     container: {

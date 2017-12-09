@@ -12,7 +12,15 @@ class Quiz extends Component {
         correctAnswers: 0,
         quizCompleted: false
     }
-
+    restarQuiz = () => {
+        this.setState((state) => {
+            return {
+                currentQuestionIndex: 0,
+                correctAnswers: 0,
+                quizCompleted: false
+            }
+        })
+    }
     onNextQuestion = (result) => {
         if (result) {
             const { correctAnswers } = this.state;
@@ -41,6 +49,12 @@ class Quiz extends Component {
                         <View style={styles.container}>
                             <Text style={styles.quizCompletedText}>Quiz completed</Text>
                             <Text style={styles.resultsText}>{(correctAnswers / deck.questions.length) * 100}% correct answers</Text>
+                            <TouchableOpacity style={{ marginTop: 10 }} onPress={this.restarQuiz}>
+                                <Text style={{ color: blue, fontSize: 18 }}>Restart quiz</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{ marginTop: 10 }} onPress={this.props.goBack}>
+                                <Text style={{ color: blue, fontSize: 18 }}>Return to deck</Text>
+                            </TouchableOpacity>
                         </View>
                         :
                         <View style={styles.container}>
@@ -63,9 +77,9 @@ class Quiz extends Component {
 
     }
 }
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, { navigation }) {
     return {
-
+        goBack: () => navigation.goBack()
     }
 }
 function mapStateToProps(state, { navigation }) {

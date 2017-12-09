@@ -73,7 +73,7 @@ export default class Question extends Component {
             <View style={styles.container}>
                 {flipped &&
                     <Animated.View style={[styles.flipCard, { width: widthAnimBack, opacity: fadeAnim }]}>
-                        <Text style={{ margin: 10, fontSize: 25, textAlign: 'center' }}>{card.answer}</Text>
+                        <Text style={styles.textContent}>{card.answer}</Text>
                         <TouchableOpacity onPress={this.setCorrectAnswer} style={[styles.button, { backgroundColor: 'green' }]}>
                             <Text style={styles.buttonText}>Correct</Text>
                         </TouchableOpacity>
@@ -83,7 +83,7 @@ export default class Question extends Component {
                     </Animated.View>
                 }
                 <Animated.View style={[styles.flipCard, frontAnimatedStyle, { width: widthAnim }]}>
-                    <Text style={{ margin: 10, fontSize: 25, textAlign: 'center' }}>{card.question}</Text>
+                    <Text style={styles.textContent}>{card.question}</Text>
                     <TouchableOpacity style={{ marginTop: 10 }} onPress={this.flipCard}>
                         <Text style={{ color: blue, fontSize: 18 }}>Answer</Text>
                     </TouchableOpacity>
@@ -125,5 +125,10 @@ const styles = StyleSheet.create({
         paddingLeft: 25,
         paddingRight: 25,
         margin: 20
+    },
+    textContent: {
+        margin: 10,
+        fontSize: 25,
+        textAlign: 'center'
     }
 });
